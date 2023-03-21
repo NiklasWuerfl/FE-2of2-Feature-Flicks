@@ -1,6 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Movie from "./Movie"
 
 export default function App() {
+
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    (async () => {
+      setMovies(await(await(fetch('api/movies'))).json())
+    })()
+  }, [])
 
   const [greeting, setGreeting] = useState('Hello World!')
 
@@ -9,5 +18,10 @@ export default function App() {
     <button
       onClick={() => setGreeting('Goodbye world!')}
     >Say goodbye</button>
+    {movies.map(({ id, title, description }) => <Movie
+      key={id}
+      title={title}
+      description={description}
+    />)}
     </div>
 }
