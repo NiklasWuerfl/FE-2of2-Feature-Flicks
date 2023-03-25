@@ -1,27 +1,26 @@
-import { useState, useEffect } from "react"
-import Movie from "./Movie"
+import { useEffect } from "react"
+import { Routes, Route } from 'react-router-dom'
+import { useStates } from './utilities/states'
+
+import MovieList from "./MovieList"
+import StartPage from "./StartPage"
+import MainMenu from "./MainMenu"
+import Receipt from "./Receipt"
+import Page404 from "./Page404"
+import Screenings from "./ScreeningList"
+import InfoPage from "./InfoPage"
 
 export default function App() {
 
-  const [movies, setMovies] = useState([])
 
-  useEffect(() => {
-    (async () => {
-      setMovies(await(await(fetch('api/movies'))).json())
-    })()
-  }, [])
-
-  const [greeting, setGreeting] = useState('Hello World!')
-
-  return <div className="App">
-    <h1>{greeting}</h1>
-    <button
-      onClick={() => setGreeting('Goodbye world!')}
-    >Say goodbye</button>
-    {movies.map(({ id, title, description }) => <Movie
-      key={id}
-      title={title}
-      description={description}
-    />)}
-    </div>
+  return <Routes>
+    <Route path="/" element={<MainMenu />}>
+      <Route index element={<StartPage />}></Route>
+      <Route path="/movie-list" element={<MovieList/>}></Route>
+      <Route path="/screening-list" element={<Screenings />}></Route>
+      <Route path="/information" element={<InfoPage />}></Route>
+      <Route path="/thank-you" element={<Receipt />}></Route>
+      <Route path="*" element={<Page404 />}></Route>
+    </Route>
+  </Routes>
 }
