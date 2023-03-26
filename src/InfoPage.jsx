@@ -2,8 +2,8 @@ import TicketInfo from "./TicketInfo";
 import AboutUs from "./AboutUs";
 
 export default function InfoPage() {
-  return <>
+  return <div className="bg-light">
     <TicketInfo />
     <AboutUs/>
-  </>
+  </div>
 }

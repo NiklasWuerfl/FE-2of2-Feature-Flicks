@@ -96,6 +96,7 @@ export default function SeatSelection() {
       s.selectedCount += 1
     }
     seat.selected = !seat.selected
+    console.log(s.selectedSeats)
   }
 
   // output the seats
@@ -134,7 +135,7 @@ export default function SeatSelection() {
             <div className="seats-row">
               {row.map((seat) => (
                 <div
-                  className={
+                  className=  {
                     (seat.selected ? "selected" : "") +
                     (seat.occupied ? " occupied" : "")
                   }
@@ -191,7 +192,7 @@ export default function SeatSelection() {
                 </span>
               </td>
               <td>
-                <span>{85 * s.adults}</span>
+                <span>{85 * s.adults} SEK</span>
               </td>
             </tr>
             <tr>
@@ -229,7 +230,7 @@ export default function SeatSelection() {
                 </span>
               </td>
               <td>
-                <span>{65 * s.children}</span>
+                <span>{65 * s.children} SEK</span>
               </td>
             </tr>
             <tr>
@@ -267,18 +268,38 @@ export default function SeatSelection() {
                 </span>
               </td>
               <td>
-                <span>{75 * s.seniors}</span>
+                <span>{75 * s.seniors} SEK</span>
               </td>
             </tr>
             <tr>
               <td></td>
               <td></td>
-              <th>{85 * s.adults + 75 * s.seniors + 65 * s.children}</th>
+              <th>{85 * s.adults + 75 * s.seniors + 65 * s.children} SEK</th>
             </tr>
           </tbody>
         </Table>
         {(s.selectedSeats.length === 0) ? null : <div className="d-flex justify-content-end px-md-4 px-lg-5">
-            <Button>Check Out</Button>
+          <Link
+            to={`/thank-you?no=${generateBookingNumber()}&total=${85 * s.adults + 75 * s.seniors + 65 * s.children
+              }&auditorium=${s.screening.auditorium}&movie=${s.screening.movie
+              }&seats=${encodeURIComponent(
+                JSON.stringify(s.selectedSeats)
+              )}&time=${new Intl.DateTimeFormat("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              }).format(
+                new Date(s.screening.screeningTime)
+              )}&type=${encodeURIComponent(
+                JSON.stringify([s.adults, s.seniors, s.children])
+              )}`}
+            replace
+          >
+            <Button className="mb-3">Book Seats</Button>
+          </Link>
         </div>}
       </Container>
     </div>
