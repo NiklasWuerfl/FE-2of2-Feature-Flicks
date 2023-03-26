@@ -6,13 +6,13 @@ import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 
-export default function CategoryFilter() {
+export default function Category() {
   const s = useStates("main");
 
   return (
     <Container fluid>
       <Row>
-        <Col className="bg-primary">
+        <Col className="bg-primary py-3">
           <div
             style={{
               display: "flex",
