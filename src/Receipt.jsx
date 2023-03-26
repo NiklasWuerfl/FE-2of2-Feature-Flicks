@@ -20,10 +20,14 @@ export default function Receipt() {
       <h4>{movie}</h4>
       <h4>Booking Number: {ticketNumber}</h4>
       <Table  hover variant="light">
-      <tbody>
-      <tr>
-        <th>Total Price</th>
-        <td>{total} SEK</td>
+        <tbody>
+        <tr>
+        <th>Screening time</th>
+        <td>{time}</td>
+        </tr>
+        <tr>
+        <th>Auditorium</th>
+        <td>{auditorium}</td>
       </tr>
       <tr>
         <th>Ticket Amount</th>
@@ -43,18 +47,15 @@ export default function Receipt() {
           <td>Children Tickets</td>
           <td>{children}</td>
         </tr>
-        )}
-      <tr>
-        <th>Auditorium</th>
-        <td>{auditorium}</td>
+          )}
+          <tr>
+        <th>Total Price</th>
+        <th>{total} SEK</th>
       </tr>
-      <tr>
-        <th>Screening time</th>
-        <td>{time}</td>
-        </tr>
+
         </tbody>
     </Table>
-      <h3 className="mt-5">Seat numbers:</h3>
+      <h3 className="mt-5">Your seats:</h3>
       <Table hover variant="light" className="pb-5">
         <thead>
           <tr>
