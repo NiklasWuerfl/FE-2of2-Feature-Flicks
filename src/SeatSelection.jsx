@@ -74,6 +74,8 @@ export default function SeatSelection() {
 
   function toggleSeatSelection(seat) {
     // do nothing if occupied
+    console.log(seat);
+    console.log(s.selectedSeats[seat.rowNumber]);
     if (seat.occupied) {
       return
     }

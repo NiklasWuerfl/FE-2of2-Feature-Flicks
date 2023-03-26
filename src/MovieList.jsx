@@ -12,7 +12,7 @@ export default function MovieList() {
           return m.description.categories.includes(s.selectedCategory)
         })
   return (
-    <div>
+    <div className="bg-light">
       <CategoryFilter></CategoryFilter>
       <Container fluid="md" className="bg-light">
         <Row xs={1} sm={2} md={3} xl={4} xxl={5} gap={3}>

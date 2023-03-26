@@ -10,37 +10,29 @@ export default function Category() {
   const s = useStates("main");
 
   return (
-    <Container fluid>
-      <Row>
-        <Col className="bg-primary py-3">
-          <div
-            style={{
-              display: "flex",
-              overflowX: "scroll",
-              overflowY: "hidden",
-              whiteSpace: "nowrap",
-            }}
+    <Container className="bg-primary py-3" fluid>
+      <Dropdown>
+      <Dropdown.Toggle variant="light" className="text-primary">
+        Categories
+      </Dropdown.Toggle>
+      <Dropdown.Menu style={{ minWidth: "50%" }}>
+        <Dropdown.Item
+          onClick={() => (s.selectedCategory = "All")}
+          active={s.selectedCategory === "All"}
+        >
+          All
+        </Dropdown.Item>
+        {s.categories.map(({ title }) => (
+          <Dropdown.Item
+            onClick={() => (s.selectedCategory = title)}
+            active={s.selectedCategory === title}
           >
-            <Button
-              className="category-link text-white"
-              variant="link"
-              onClick={() => (s.selectedCategory = "All")}
-            >
-              All
-            </Button>
-            {s.categories.map(({ title }) => (
-              <Button
-                className="category-link text-white"
-                variant="link"
-                onClick={() => (s.selectedCategory = title)}
-              >
-                {title}
-              </Button>
-            ))}
-          </div>
-        </Col>
-      </Row>
-      <h1 className="mt-3 text-black">{s.selectedCategory}</h1>
+            {title}
+          </Dropdown.Item>
+        ))}
+      </Dropdown.Menu>
+    </Dropdown>
+      <h1 className="pt-3 text-center text-white">{s.selectedCategory}</h1>
     </Container>
   );
 }

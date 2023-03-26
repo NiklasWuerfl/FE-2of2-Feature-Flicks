@@ -1,9 +1,11 @@
 export default function AboutUs() {
   
-  return <div className="mx-5 mb-5">
+  return <div className="about-us mx-5 mb-5">
     <h2>About us</h2>
     <p>Who we Are:</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quod blanditiis eligendi labore aliquid, eum, soluta dolores numquam vitae expedita quidem ex architecto aliquam in? Modi aut velit doloremque sint.</p>
-    <p>Odit necessitatibus iste error incidunt, suscipit id non? Aliquam minus at repellendus quam suscipit amet doloremque voluptatum, ullam voluptates veritatis corporis pariatur? Commodi suscipit odit natus id, quo tenetur sequi.</p>
+    <p>Feature Flicks is a new and cosy cinema in Smastad, Sweden. We have two auditoriums and a wide variaty of movies to show.</p>
+    <p>We would like to welcome you soon!</p>
+    <p>Phone: 0167-234556-231</p>
+    <p>Address: Small Street 21, Smastad, Sweden</p>
   </div>
 }
