@@ -42,13 +42,13 @@
 }
 
 .seats > .seats-row > div {
-  background-color: white;
+  background-color: rgb(199, 199, 199);
   color: black;
   float: right;
   // text-align: center;
   padding-top: 3px;
-  border-top-left-radius: 25%;
-  border-top-right-radius: 25%;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
   width: 30px;
   height: 30px;
   margin: 3px 1px;
@@ -56,12 +56,12 @@
 }
 
 .seats > .seats-row > .selected {
-  background-color: #72b457;
+  background-color: #074901;
   color: white;
 }
 
 .seats > .seats-row > .occupied {
-  background-color: rgb(152, 28, 28);
+  background-color: rgb(121, 30, 30);
   color: white;
   cursor: not-allowed;
 }
@@ -80,3 +80,10 @@
 // Categories?
 // Sitzauswahl Effekt
 // Receipt wenn kein Platz ausgewählt
+
+
+// Buy button in die Mitte
+// Effekt beim ins Shopping Cart legen?
+// Shopping Cart mx-auto?
+// Margin generell
+// Bücherbeschreibungen

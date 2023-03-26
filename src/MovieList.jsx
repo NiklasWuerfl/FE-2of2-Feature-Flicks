@@ -1,18 +1,16 @@
-import { useStates } from "./utilities/states";
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import {Col, Row, Button} from "react-bootstrap";
-import CategoryFilter from "./CategoryFilter";
+import { useStates } from "./utilities/states"
+import { Link } from "react-router-dom"
+import {Card, Container, Col, Row, Button} from "react-bootstrap"
+import CategoryFilter from "./CategoryFilter"
 
 export default function MovieList() {
-  const s = useStates("main");
+  const s = useStates("main")
   let filteredMovies =
     s.selectedCategory === "All"
       ? s.movies
       : s.movies.filter((m) => {
-          return m.description.categories.includes(s.selectedCategory);
-        });
+          return m.description.categories.includes(s.selectedCategory)
+        })
   return (
     <div>
       <CategoryFilter></CategoryFilter>

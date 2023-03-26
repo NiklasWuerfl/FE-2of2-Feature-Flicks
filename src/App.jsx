@@ -11,6 +11,7 @@ import Page404 from "./Page404"
 import Screenings from "./ScreeningList"
 import InfoPage from "./InfoPage"
 import Movie from "./Movie"
+import SeatSelection from "./SeatSelection";
 
 export default function App() {
 
@@ -57,6 +58,7 @@ export default function App() {
       <Route path="movie-list" element={<MovieList />}></Route>
       <Route path="movie/:slug" element={<Movie />}></Route>
       <Route path="screening-list" element={<Screenings />}></Route>
+      <Route path="booking/:screeningId" element={<SeatSelection />}></Route>
       <Route path="information" element={<InfoPage />}></Route>
       <Route path="thank-you" element={<Receipt />}></Route>
       <Route path="*" element={<Page404 />}></Route>

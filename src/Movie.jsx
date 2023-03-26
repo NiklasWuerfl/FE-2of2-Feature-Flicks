@@ -1,18 +1,18 @@
-import {Container, Col, Button} from "react-bootstrap";
-import Image from "react-bootstrap/Image";
-import { useParams, Link } from "react-router-dom";
-import { useStates } from "./utilities/states";
+import {Container, Col, Button} from "react-bootstrap"
+import Image from "react-bootstrap/Image"
+import { useParams, Link } from "react-router-dom"
+import { useStates } from "./utilities/states"
 
 export default function Movie() {
 
-    const { slug } = useParams();
+    const { slug } = useParams()
 
-    const s = useStates("main");
+    const s = useStates("main")
   
     // find the movie and deconstruct properties from it to variables
-    const movie = s.movies.find((movie) => movie.slug == slug);
-    const { id, title, description } = movie;
-    const { length, categories, posterImage } = description;
+    const movie = s.movies.find((movie) => movie.slug == slug)
+    const { id, title, description } = movie
+    const { length, categories, posterImage } = description
     const screenings = s.screenings
       .filter((sc) => sc.movieId === id)
       .sort(
