@@ -81,12 +81,12 @@ export default function SeatSelection() {
     }
     // select if not selected, deselect if selected
     if (seat.selected) {
-      s.selectedSeats = s.selectedSeats[seat.rowNumber].filter(
+      s.selectedSeats[seat.rowNumber] = s.selectedSeats[seat.rowNumber].filter(
         (se) => se.seatNumber !== seat.seatNumber
       );
       s.selectedCount -= 1
       if (s.adults != 0) s.adults -= 1
-      else if (s.senior != 0) s.seniors -= 1
+      else if (s.seniors != 0) s.seniors -= 1
       else s.children -= 1
     } else {
       if (s.selectedSeats[seat.rowNumber]) {
